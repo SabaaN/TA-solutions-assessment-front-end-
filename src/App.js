@@ -13,7 +13,7 @@ const App = () => {
   });
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/currencies')
+    fetch('ta-solutions-assessment-back-end-production.up.railway.app/api/currencies')
       .then((res) => res.json())
       .then((data) => setCurrencies(data.data))
       .catch(console.error);
@@ -23,7 +23,7 @@ const App = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        `http://localhost:5000/api/convert?from=${from}&to=${to}&amount=${amount}`
+        `ta-solutions-assessment-back-end-production.up.railway.app/api/convert?from=${from}&to=${to}&amount=${amount}`
       );
       const data = await res.json();
       setResult(data.result);
