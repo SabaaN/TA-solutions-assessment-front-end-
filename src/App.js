@@ -13,7 +13,7 @@ const App = () => {
   });
 
   useEffect(() => {
-    fetch(`https://ta-solutions-assessment-back-end-production.up.railway.app/api/convert?...`)
+    fetch('ta-solutions-assessment-back-end-production.up.railway.app/api/currencies')
       .then((res) => res.json())
       .then((data) => setCurrencies(data.data))
       .catch(console.error);
@@ -22,8 +22,9 @@ const App = () => {
   const handleConvert = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`https://ta-solutions-assessment-back-end-production.up.railway.app/api/convert?...`)
-
+      const res = await fetch(
+        `ta-solutions-assessment-back-end-production.up.railway.app/api/convert?from=${from}&to=${to}&amount=${amount}`
+      );
       const data = await res.json();
       setResult(data.result);
 
